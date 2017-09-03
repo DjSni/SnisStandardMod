@@ -54,5 +54,5 @@ github-release upload \
     --user DjSni \
     --repo ${NAME} \
     --tag ${CURRENTVERSION} \
-    --name "${DIRNAME}" \
-    --file builds/${DIRNAME}.zip
+    --name "${DIRNAME}.zip" \
+    --file "builds/${DIRNAME}.zip"
