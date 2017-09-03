@@ -81,5 +81,4 @@ data:extend({
     upgrade = true,
     order = "c-k-f-b"
   },
-})
-  
+}) 

@@ -23,7 +23,7 @@ mkdir ${DIRNAME}
 
 cp -r src/* ${DIRNAME}
 
-if [ -f builds ]
+if [ ! -d builds ]
 then
         mkdir builds
 fi

@@ -1,70 +1,28 @@
 require("config")
-require("technology")
+
 -- Loader Hinzufügen
-require("data-update")
+if settings.startup["SnisSetting-loader"].value == true then
+	require("mods.loader")
+end
+
+-- Loader-Snapping
+if settings.startup["SnisSetting-loader-sapping"].value == true then
+	require("mods.loader-snapping-toggle")
+end
 
 -- Größeren Inventar
-data.raw["player"]["player"].inventory_size = 120
--- Nachtsicht nicht Grün
--- data.raw["night-vision-equipment"]["night-vision-equipment"].tint = {r = 0, g = 0, b = 0, a = 0}
+local inven_big = (settings.startup["SnisSetting-inventory_size"].value)
+if inven_big == true then
+	require("mods.inventory")
+end
+
 -- Größeren Werkzeuggürtel
-data:extend(
-{
-  {
-    type = "technology",
-    name = "toolbelt-2",
-    icon = "__base__/graphics/technology/toolbelt.png",
-    effects =
-    {
-      {
-        type = "num-quick-bars",
-        modifier = 1
-      }
-    },
-    prerequisites = {"toolbelt"},
-    unit =
-    {
-      count = 200,
-      ingredients =
-      {
-        {"science-pack-1", 1},
-        {"science-pack-2", 1}
-      },
-      time = 30
-    },
-    order = "c-k-n"
-  },
-  {
-    type = "technology",
-    name = "toolbelt-3",
-    icon = "__base__/graphics/technology/toolbelt.png",
-    effects =
-    {
-      {
-        type = "num-quick-bars",
-        modifier = 1
-      }
-    },
-    prerequisites = {"toolbelt-2"},
-    unit =
-    {
-      count = 400,
-      ingredients =
-      {
-        {"science-pack-1", 1},
-        {"science-pack-2", 1},
-        {"science-pack-3", 1}
-      },
-      time = 40
-    },
-    order = "c-k-o"
-  },
-  {
-	type = "custom-input",
-	name = "lrf-toggle",
-	key_sequence = "CONTROL + L",
-	consuming = "script-only"	  
-  }
-})
--- 
+if settings.startup["SnisSetting-toolbelt"].value == true then
+	require("mods.toolbelt")
+end
+
+-- logistic (trash) slots
+if settings.startup["SnisSetting-logistic"].value == true then
+	require("mods.logistic")
+end
 

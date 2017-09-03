@@ -1,0 +1,2 @@
+-- Nachtsicht nicht Grün
+-- data.raw["night-vision-equipment"]["night-vision-equipment"].tint = {r = 0, g = 0, b = 0, a = 0}
