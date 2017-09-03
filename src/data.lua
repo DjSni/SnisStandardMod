@@ -1,4 +1,5 @@
 require("config")
+require("technology")
 -- Loader Hinzufügen
 require("data-update")
 

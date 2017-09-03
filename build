@@ -1,14 +1,16 @@
 #!/bin/bash
+#set -e
+set -o pipefail
 
 if [ -z $BUILD_NUMBER ]
 then
-	BUILD_NUMBER="0"
+        BUILD_NUMBER="0"
 else
-	BUILD_NUMBER=$1
+        BUILD_NUMBER=$1
 fi
-GIT_COMMIT=$2
 
-echo $GIT_COMMIT
+#GIT_COMMIT=$2
+#echo $GIT_COMMIT
 
 sed -i "s/BUILD/$BUILD_NUMBER/g" src/info.json
 
@@ -27,4 +29,9 @@ then
 fi
 zip -r "builds/${DIRNAME}.zip" "${DIRNAME}" -x *.git* -x *build*
 
+if [ ! -f "builds/${DIRNAME}.zip" ]
+then
+        echo "An error occurred. Exiting..." >&2
+        exit 1
+fi
 rm -R ${DIRNAME}
