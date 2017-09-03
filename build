@@ -27,7 +27,7 @@ if [ ! -d builds ]
 then
         mkdir builds
 fi
-#zip -r "builds/${DIRNAME}.zip" "${DIRNAME}" -x *.git* -x *build*
+zip -r "builds/${DIRNAME}.zip" "${DIRNAME}" -x *.git* -x *build*
 
 if [ ! -f "builds/${DIRNAME}.zip" ]
 then
