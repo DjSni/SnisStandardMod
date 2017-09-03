@@ -9,7 +9,7 @@ else
         BUILD_NUMBER=$1
 fi
 
-#GIT_COMMIT=$2
+GIT_COMMIT=$2
 #echo $GIT_COMMIT
 
 sed -i "s/BUILD/$BUILD_NUMBER/g" src/info.json
@@ -27,7 +27,7 @@ if [ ! -d builds ]
 then
         mkdir builds
 fi
-zip -r "builds/${DIRNAME}.zip" "${DIRNAME}" -x *.git* -x *build*
+#zip -r "builds/${DIRNAME}.zip" "${DIRNAME}" -x *.git* -x *build*
 
 if [ ! -f "builds/${DIRNAME}.zip" ]
 then
@@ -35,3 +35,24 @@ then
         exit 1
 fi
 rm -R ${DIRNAME}
+
+GITHUB_TOKEN=`cat /var/lib/jenkins/workspace/githubtoken.sh`
+
+#echo ${GITHUB_TOKEN}
+
+#git tag ${CURRENTVERSION} && git push --tags
+
+github-release release \
+    --user DjSni \
+    --repo ${NAME} \
+    --tag ${CURRENTVERSION} \
+    --name "${NAME}" \
+    --description "Automated Build" \
+#    --pre-release
+
+github-release upload \
+    --user DjSni \
+    --repo ${NAME} \
+    --tag ${CURRENTVERSION} \
+    --name "${NAME}" \
+    --file builds/${DIRNAME}.zip
