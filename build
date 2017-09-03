@@ -1,9 +1,30 @@
 #!/bin/bash
-echo "testbuild"
-#BUILD_NUMBER="$1"
-#GIT_COMMIT="$2"
 
-echo '$BUILD_NUMBER'
-echo '$GIT_COMMIT'
+if [ -z $BUILD_NUMBER ]
+then
+	BUILD_NUMBER="0"
+else
+	BUILD_NUMBER=$1
+fi
+GIT_COMMIT=$2
+
+echo $GIT_COMMIT
 
 sed -i "s/BUILD/$BUILD_NUMBER/g" src/info.json
+
+NAME=$(cat src/info.json | grep -Po '(?<="name": ")[^"]*')
+CURRENTVERSION=$(cat src/info.json | grep -Po '(?<="version": ")[^"]*')
+
+DIRNAME="${NAME}_${CURRENTVERSION}"
+
+mkdir ${DIRNAME}
+
+cp -r src/* ${DIRNAME}
+
+if [ -f builds ]
+then
+        mkdir builds
+fi
+zip -r "builds/${DIRNAME}.zip" "${DIRNAME}" -x *.git* -x *build*
+
+rm -R ${DIRNAME}
