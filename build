@@ -36,7 +36,7 @@ then
 fi
 rm -R ${DIRNAME}
 
-GITHUB_TOKEN=`cat /var/lib/jenkins/workspace/githubtoken.sh`
+export GITHUB_TOKEN=`cat /var/lib/jenkins/workspace/githubtoken.sh`
 
 #echo ${GITHUB_TOKEN}
 
@@ -46,7 +46,7 @@ github-release release \
     --user DjSni \
     --repo ${NAME} \
     --tag ${CURRENTVERSION} \
-    --name "${NAME}" \
+    --name "${DIRNAME}" \
     --description "Automated Build" \
 #    --pre-release
 
@@ -54,5 +54,5 @@ github-release upload \
     --user DjSni \
     --repo ${NAME} \
     --tag ${CURRENTVERSION} \
-    --name "${NAME}" \
+    --name "${DIRNAME}" \
     --file builds/${DIRNAME}.zip
