@@ -1,7 +1,11 @@
+require("config")
+-- Loader Hinzufügen
+require("data-update")
+
 -- Größeren Inventar
 data.raw["player"]["player"].inventory_size = 120
 -- Nachtsicht nicht Grün
-data.raw["night-vision-equipment"]["night-vision-equipment"].tint = {r = 0, g = 0, b = 0, a = 0}
+-- data.raw["night-vision-equipment"]["night-vision-equipment"].tint = {r = 0, g = 0, b = 0, a = 0}
 -- Größeren Werkzeuggürtel
 data:extend(
 {
