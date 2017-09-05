@@ -1,5 +1,7 @@
 # SnisStandardMod
 
+[![Build Status](http://bot.snis.pw:9000/job/SnisStandardMod/badge/icon)](http://bot.snis.pw:9000/job/SnisStandardMod/)
+
 This Mod include at the moment this helper mods:
 (all parts can be switched on or off in the "ModSettings" before creating a new game)
 
