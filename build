@@ -10,9 +10,12 @@ else
 fi
 
 GIT_COMMIT=$2
+PRE=$3
+echo $PRE
+
 #echo $GIT_COMMIT
 
-sed -i "s/BUILD/$BUILD_NUMBER/g" src/info.json
+#sed -i "s/BUILD/$BUILD_NUMBER/g" src/info.json
 
 NAME=$(cat src/info.json | grep -Po '(?<="name": ")[^"]*')
 CURRENTVERSION=$(cat src/info.json | grep -Po '(?<="version": ")[^"]*')
@@ -38,21 +41,36 @@ rm -R ${DIRNAME}
 
 export GITHUB_TOKEN=`cat /var/lib/jenkins/workspace/githubtoken.sh`
 
-#echo ${GITHUB_TOKEN}
-
 #git tag ${CURRENTVERSION} && git push --tags
 
-github-release release \
-    --user DjSni \
-    --repo ${NAME} \
-    --tag ${CURRENTVERSION} \
-    --name "${DIRNAME}" \
-    --description "Automated Build" \
-#    --pre-release
+if [ $PRE != "yes" ]
+then
+	github-release release \
+	    --user DjSni \
+	    --repo ${NAME} \
+	    --tag ${CURRENTVERSION} \
+	    --name "${DIRNAME}" \
+	    --description "Automated Build" \
+	    --pre-release
 
-github-release upload \
-    --user DjSni \
-    --repo ${NAME} \
-    --tag ${CURRENTVERSION} \
-    --name "${DIRNAME}.zip" \
-    --file "builds/${DIRNAME}.zip"
+	github-release upload \
+	    --user DjSni \
+	    --repo ${NAME} \
+	    --tag ${CURRENTVERSION} \
+	    --name "${DIRNAME}.zip" \
+	    --file "builds/${DIRNAME}.zip"
+else
+	github-release release \
+	    --user DjSni \
+	    --repo ${NAME} \
+	    --tag ${CURRENTVERSION} \
+	    --name "${DIRNAME}" \
+	    --description "Automated Build" 
+
+	github-release upload \
+	    --user DjSni \
+	    --repo ${NAME} \
+	    --tag ${CURRENTVERSION} \
+	    --name "${DIRNAME}.zip" \
+	    --file "builds/${DIRNAME}.zip"
+fi

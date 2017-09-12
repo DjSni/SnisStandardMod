@@ -22,7 +22,7 @@ data:extend({
     category = "crafting-with-fluid",
     ingredients =
     {
-      {type="fluid", name="water", amount=200}
+      {type="fluid", name="water", amount=100}
     },
     result= "waterfill",
     result_count = 1
