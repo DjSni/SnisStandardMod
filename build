@@ -11,6 +11,7 @@ fi
 
 GIT_COMMIT=$2
 PRE=$3
+echo $PRE
 
 #echo $GIT_COMMIT
 
@@ -49,7 +50,7 @@ then
 	    --repo ${NAME} \
 	    --tag ${CURRENTVERSION} \
 	    --name "${DIRNAME}" \
-	    --description "Automated Build" \
+	    --description "Automated Build"
 
 	github-release upload \
 	    --user DjSni \
@@ -71,6 +72,5 @@ else
 	    --repo ${NAME} \
 	    --tag ${CURRENTVERSION} \
 	    --name "${DIRNAME}.zip" \
-	    --pre-release \
 	    --file "builds/${DIRNAME}.zip"
 fi
