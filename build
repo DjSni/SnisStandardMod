@@ -50,7 +50,8 @@ then
 	    --repo ${NAME} \
 	    --tag ${CURRENTVERSION} \
 	    --name "${DIRNAME}" \
-	    --description "Automated Build"
+	    --description "Automated Build" \
+	    --pre-release
 
 	github-release upload \
 	    --user DjSni \
@@ -64,8 +65,7 @@ else
 	    --repo ${NAME} \
 	    --tag ${CURRENTVERSION} \
 	    --name "${DIRNAME}" \
-	    --description "Automated Build" \
-	    --pre-release
+	    --description "Automated Build" 
 
 	github-release upload \
 	    --user DjSni \
