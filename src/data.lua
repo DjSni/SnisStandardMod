@@ -26,3 +26,7 @@ if settings.startup["SnisSetting-logistic"].value == true then
 	require("mods.logistic")
 end
 
+-- waterfill
+if settings.startup["SnisSetting-waterfill"].value == true then
+	require("mods.waterfill")
+end

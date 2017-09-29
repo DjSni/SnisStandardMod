@@ -40,6 +40,14 @@ data:extend({
 		order = "a",
 		per_user = false
 	},
+	{
+		type = "bool-setting",
+		name = "SnisSetting-waterfill",
+		setting_type = "startup",
+		default_value = true,
+		order = "a",
+		per_user = false
+	},
 	-- Global
 --	{
 --		type = "bool-setting",

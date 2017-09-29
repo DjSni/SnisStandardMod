@@ -48,16 +48,16 @@ then
 	github-release release \
 	    --user DjSni \
 	    --repo ${NAME} \
-	    --tag ${CURRENTVERSION}-DEV \
-	    --name "${DIRNAME}-DEV" \
+	    --tag ${CURRENTVERSION}_${BUILD_NUMBER}-DEV \
+	    --name "${DIRNAME}_${BUILD_NUMBER}-DEV" \
 	    --description "Automated Pre Build" \
 	    --pre-release
 
 	github-release upload \
 	    --user DjSni \
 	    --repo ${NAME} \
-	    --tag ${CURRENTVERSION}-DEV \
-	    --name "${DIRNAME}-DEV.zip" \
+	    --tag ${CURRENTVERSION}_${BUILD_NUMBER}-DEV \
+	    --name "${DIRNAME}_${BUILD_NUMBER}-DEV.zip" \
 	    --file "builds/${DIRNAME}.zip"
 else
 	github-release release \
