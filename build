@@ -43,21 +43,21 @@ export GITHUB_TOKEN=`cat /var/lib/jenkins/workspace/githubtoken.sh`
 
 #git tag ${CURRENTVERSION} && git push --tags
 
-if [ $PRE != "yes" ]
+if [ $PRE == "YES" ]
 then
 	github-release release \
 	    --user DjSni \
 	    --repo ${NAME} \
-	    --tag ${CURRENTVERSION} \
-	    --name "${DIRNAME}" \
-	    --description "Automated Build" \
+	    --tag ${CURRENTVERSION}-DEV \
+	    --name "${DIRNAME}-DEV" \
+	    --description "Automated Pre Build" \
 	    --pre-release
 
 	github-release upload \
 	    --user DjSni \
 	    --repo ${NAME} \
-	    --tag ${CURRENTVERSION} \
-	    --name "${DIRNAME}.zip" \
+	    --tag ${CURRENTVERSION}-DEV \
+	    --name "${DIRNAME}-DEV.zip" \
 	    --file "builds/${DIRNAME}.zip"
 else
 	github-release release \
