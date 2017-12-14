@@ -4,6 +4,7 @@ data:extend(
     type = "technology",
     name = "toolbelt-2",
     icon = "__base__/graphics/technology/toolbelt.png",
+    icon_size = 128,
     effects =
     {
       {
@@ -28,6 +29,7 @@ data:extend(
     type = "technology",
     name = "toolbelt-3",
     icon = "__base__/graphics/technology/toolbelt.png",
+    icon_size = 128,
     effects =
     {
       {
