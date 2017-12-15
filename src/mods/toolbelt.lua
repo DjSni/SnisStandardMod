@@ -8,7 +8,7 @@ data:extend(
     effects =
     {
       {
-        type = "quick-bars-count",
+        type = "quick-bar-count",
         modifier = 1
       }
     },
@@ -33,7 +33,7 @@ data:extend(
     effects =
     {
       {
-        type = "quick-bars-count",
+        type = "quick-bar-count",
         modifier = 1
       }
     },
