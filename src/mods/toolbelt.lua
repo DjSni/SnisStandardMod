@@ -4,10 +4,11 @@ data:extend(
     type = "technology",
     name = "toolbelt-2",
     icon = "__base__/graphics/technology/toolbelt.png",
+    icon_size = 128,
     effects =
     {
       {
-        type = "num-quick-bars",
+        type = "quick-bar-count",
         modifier = 1
       }
     },
@@ -28,10 +29,11 @@ data:extend(
     type = "technology",
     name = "toolbelt-3",
     icon = "__base__/graphics/technology/toolbelt.png",
+    icon_size = 128,
     effects =
     {
       {
-        type = "num-quick-bars",
+        type = "quick-bar-count",
         modifier = 1
       }
     },

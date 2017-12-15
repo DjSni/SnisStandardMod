@@ -2,7 +2,9 @@ data:extend({
 {
     type = "item",
     name = "waterfill",
+    --tooltip = "wftt",
     icon = "__SnisStandardMod__/pic/water.png",
+    icon_size = 128,
     flags = {"goes-to-main-inventory"},
     subgroup = "terrain",
     order = "c[landfill]-a[dirt]",
@@ -32,6 +34,7 @@ data:extend({
     name = "waterfill",
     icon = "__SnisStandardMod__/pic/water.png",
 	prerequisites = {"landfill"},
+    icon_size = 128,
     unit =
     {
       count = 50,
