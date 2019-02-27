@@ -5,7 +5,7 @@ data:extend({
     --tooltip = "wftt",
     icon = "__SnisStandardMod__/pic/water.png",
     icon_size = 128,
-    flags = {"goes-to-main-inventory"},
+    flags = {},
     subgroup = "terrain",
     order = "c[landfill]-a[dirt]",
     stack_size = 200,
@@ -40,8 +40,8 @@ data:extend({
       count = 50,
       ingredients =
       {
-        {"science-pack-1", 1},
-        {"science-pack-2", 1},
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
       },
       time = 25
     },
