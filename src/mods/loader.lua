@@ -1,9 +1,9 @@
--- Loader Hinzufügen
-data.raw.item["computer"].flags = {"goes-to-quickbar"}
+-- Loader Hinzuf?gen
+--data.raw.item["computer"].flags = {"hidden"}
 
-data.raw.item["loader"].flags = {"goes-to-quickbar"}
-data.raw.item["fast-loader"].flags = {"goes-to-quickbar"}
-data.raw.item["express-loader"].flags = {"goes-to-quickbar"}
+--data.raw.item["loader"].flags = {"goes-to-main-inventory"}
+--data.raw.item["fast-loader"].flags = {"goes-to-main-inventory"}
+--data.raw.item["express-loader"].flags = {"goes-to-main-inventory"}
 
 data.raw.recipe["loader"].enabled = true
 data.raw.recipe["fast-loader"].enabled = true

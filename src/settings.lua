@@ -24,6 +24,7 @@ data:extend({
 		order = "a",
 		per_user = true
 	},
+--[=[
 	{
 		type = "bool-setting",
 		name = "SnisSetting-toolbelt",
@@ -32,6 +33,7 @@ data:extend({
 		order = "a",
 		per_user = false
 	},
+--]=]
 	{
 		type = "bool-setting",
 		name = "SnisSetting-logistic",
